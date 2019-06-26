@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductComponent } from './components/product/product.component';
 import { environment } from './../environments/environment.prod';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -27,6 +28,7 @@ import { environment } from './../environments/environment.prod';
     LoginComponent,
     RegisterComponent,
     ProductComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [
