@@ -22,4 +22,18 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+
+  deleteProduct(id) {
+    // console.log("----" + id);
+    this.productService.delete(id).then(() => {
+      alert('success');
+    }).catch(err => console.log(err.message));
+  }
+
+  changeEtatProduct(product) {
+    this.productService.activeProduct(product).then(() => { }).catch(err => console.error(err));
+  }
+
+
+
 }

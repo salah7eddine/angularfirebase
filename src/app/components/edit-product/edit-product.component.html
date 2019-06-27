@@ -1,3 +1,81 @@
-<p>
-  edit-product works!
-</p>
+<div class="row my-3">
+  <div class="col-md-6">
+    <h1>Edit Product</h1>
+  </div>
+  <div class="col-md-6 text-right">
+    <a routerLink="/products" class="btn btn-link"><i class="fa fa-arrow-left"></i> Back To List of Products</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+
+    <form action="" #f="ngForm">
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input required [(ngModel)]="myProduct.title" #title="ngModel" type="text" name="title" id="title"
+          class="form-control" [ngClass]="{
+          'is-valid': title.valid && title.touched,
+          'is-invalid': title.invalid && title.touched
+        }" placeholder="" aria-describedby="helpId">
+        <div class="valid-feedback" *ngIf="title.invalid && title.touched"> Field required !</div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea [(ngModel)]="myProduct.description" #description="ngModel" name="description" id="description"
+          class="form-control" [ngClass]="{
+          'is-valid': description.valid && description.touched,
+          'is-invalid': description.invalid && description.touched
+        }" rows="10"></textarea>
+        <div class="valid-feedback" *ngIf="description.invalid && description.touched"> Field required !</div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input [(ngModel)]="myProduct.price" #price="ngModel" type="number" name="price" id="price" class="form-control"
+          placeholder="" [ngClass]="{
+          'is-valid': price.valid && price.touched,
+          'is-invalid': price.invalid && price.touched
+        }" aria-describedby="helpId">
+        <div class="valid-feedback" *ngIf="price.invalid && price.touched"> Field required !</div>
+      </div>
+
+      <div class="form-group">
+        <label for="stock">stock</label>
+        <input [(ngModel)]="myProduct.stock" #stock="ngModel" type="number" name="stock" id="stock" class="form-control"
+          placeholder="" [ngClass]="{
+          'is-valid': stock.valid && stock.touched,
+          'is-invalid': stock.invalid && stock.touched
+        }" aria-describedby="helpId">
+        <div class="valid-feedback" *ngIf="stock.invalid && stock.touched"> Field required !</div>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="stock">stock</label>
+        <input ngModel #stock="ngModel" type="number" name="stock" id="stock" class="form-control" placeholder=""
+          [ngClass]="{
+                'is-valid': stock.valid && stock.touched,
+                'is-invalid': stock.invalid && stock.touched
+              }" aria-describedby="helpId">
+        <div class="valid-feedback" *ngIf="stock.invalid && stock.touched"> Field required !</div>
+      </div> -->
+
+      <div class="form-check">
+        <label for="active" class="form-check-label">
+          <input [(ngModel)]="myProduct.active" type="checkbox" class="form-check-input" name="active" id="active"
+            value="checkedValue">
+          <!-- checked -->
+          Active
+        </label>
+      </div>
+
+      <!-- {{myProduct | json}} -->
+
+      <button type="button" (onclick)="upodateProduct(f)" class="btn btn-warning btn-block"><i class="fa fa-send"> Edit
+          Product</i></button>
+
+    </form>
+  </div>
+</div>

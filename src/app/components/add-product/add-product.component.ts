@@ -19,9 +19,9 @@ export class AddProductComponent implements OnInit {
 
     if (f.valid) {
       console.log(f.value);
-      f.value.published = new Date();
-      // f.value = { ...f.value };
-      this.productService.create(f.value).then(res => {
+      // f.value.published = new Date();
+      let data = { published: new Date(), ...f.value };
+      this.productService.create(data).then(res => {
         this.router.navigate(['/products'])
       }).catch(err => console.log(err));
     }
