@@ -35,4 +35,19 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  signInwithGoogle() {
+    this.authService.loginWithGoogle().then(res => {
+      this.flashMessage.show('Wlecome to you Account !', {
+        cssClass: 'alert-info',
+        timeout: 3000
+      });
+      this.router.navigate(['/products']);
+    }).catch(err => {
+      this.flashMessage.show(err.message, {
+        cssClass: 'alert-warning',
+        timeout: 5000
+      });
+    });
+  }
+
 }

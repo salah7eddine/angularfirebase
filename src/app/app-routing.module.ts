@@ -6,6 +6,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: '', component: ProductsComponent },
       { path: 'add', component: AddProductComponent },
       { path: 'edit/:id', component: EditProductComponent },
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   // { path: 'products', component: ProductsComponent },
   // { path: 'product/add', component: AddProductComponent },
